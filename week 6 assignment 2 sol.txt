@@ -1,0 +1,187 @@
+﻿Question.1
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m;
+    cout<<"enter the no of rows/column";
+    cin>>m;
+    int arr[m][m];
+    for(int i=0; i<=m-1; i++){ //rows
+        for(int j=0; j<=m-1; j++){ //column
+            cin>>arr[i][j];
+        }
+    }
+    // printing middle row and column
+    for(int i=0; i<=m-1; i++){ //rows
+        for(int j=0; j<=m-1; j++){ //column
+            if(i == j || (i+j == m-1)) cout<<arr[i][j]<<" ";
+            else cout<<" "<<" ";
+        }
+        cout<<endl;
+    }
+   
+    }
+
+
+
+
+
+
+Question.2
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m;
+    cout<<"enter row of matrix : ";
+    cin>>m;
+    int n;
+    cout<<"enter column of matrix : ";
+    cin>>n;
+    int arr[m][n];
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            cin>>arr[i][j];
+        }
+    }
+    cout<<endl;
+    // transposing the matrix
+    for(int i=0; i<m; i++){
+        for(int j=0; j<i; j++){
+            swap(arr[i][j],arr[j][i]);
+        }
+    }
+    // printing
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+    // rotating anti clockwise
+    // outer loop column
+    for(int c=0; c<m; c++){
+        // reverse the cth column
+        int i=0;
+        int j=m-1;
+        while(i<j){
+            swap(arr[i][c],arr[j][c]);
+            i++;
+            j--;
+        }
+    }
+        // printing
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+
+
+
+
+Question.3
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m;
+    cout<<"enter row of matrix : ";
+    cin>>m;
+    int n;
+    cout<<"enter column of matrix : ";
+    cin>>n;
+    int arr[m][n];
+    for(int i=0; i<m; i++){
+        for(int j=0; j<n; j++){
+            cin>>arr[i][j];
+        }
+    }
+    cout<<endl;
+    // wave print
+    for(int j=0; j<m; j++){
+        if(j%2==0){
+             for(int i=n-1;i>=0;i--){
+                cout<<arr[i][j]<<" ";
+            }
+        }
+        else{  
+            for(int i=0; i<n; i++){
+                cout<<arr[i][j]<<" ";
+            }
+        }
+    }
+}
+
+
+
+
+
+
+Question.4
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> matrix(n, vector<int>(n, 0)); // Initialize an n x n matrix with all elements as 0
+        int minr = 0, minc = 0;
+        int maxr = n - 1, maxc = n - 1;
+        int tne = n * n;
+        int count = 0;
+        int a = 1;
+
+
+        // vector<int> v;
+        while (count<tne) {
+            // Right
+            for (int j = minc; j <= maxc && count <= tne; j++) {
+                matrix[minr][j] = a++;
+                count++;
+            }
+            minr++;
+
+
+            // Down
+            for (int i = minr; i <= maxr && count <= tne; i++) {
+                matrix[i][maxc] = a++;
+                count++;
+            }
+            maxc--;
+
+
+            // Left
+            for (int j = maxc; j >= minc && count <= tne; j--) {
+                matrix[maxr][j] = a++;
+                count++;
+            }
+            maxr--;
+
+
+            // Up
+            for (int i = maxr; i >= minr && count <= tne; i--) {
+                matrix[i][minc] = a++;
+                count++;
+            }
+            minc++;
+        }
+        return matrix;
+    }
+};
+
+
+
+
+
+
+Question.6
+int main(){
+int a[][2] = {{1,2},{3,4}};
+int i, j;
+for (i = 0; i < 2; i++)
+for (j = 0; j < 2; j++)
+cout << a[i][j];
+return 0;
+}
+Output: 1 2 3 4
